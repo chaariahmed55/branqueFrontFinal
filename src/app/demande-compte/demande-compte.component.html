@@ -1,0 +1,80 @@
+<div id="login-page">
+  <div class="container">
+    <form class="form-login">
+      <h2 class="form-login-heading">Créer compte</h2>
+
+      <span *ngIf="errorMessage" class="text-danger">{{errorMessage}}</span>
+      <div class="login-wrap">
+        <div class="row">
+
+         <div class="col-sm-6"  >
+            <input type="text" class="form-control" placeholder="CIN" name="cin"
+                   [(ngModel)]="user.cin" required #cin="ngModel">
+
+            <br>
+
+            <input type="text" class="form-control" placeholder="Nom" name="nom"
+                   [(ngModel)]="user.nom" required #nom="ngModel">
+            <br>
+
+            <input type="text" class="form-control" placeholder="Prénom" name="prenom"
+                   [(ngModel)]="user.prenom" required #prenom="ngModel">
+            <br>
+
+            <input type="email" email class="form-control" placeholder="Email" name="email"
+                   [(ngModel)]="user.email" required #mail="ngModel">
+            <br>
+            <input type="text" class="form-control" placeholder="Téléphone" name="phone"
+                   [(ngModel)]="user.phone" required #phone="ngModel">
+            <br>
+            <select [(ngModel)]="typeCompte" required name="typeCompte" class="form-control">
+              <option value="courant">Courant</option>
+              <option value="epargne">Epargne</option>
+            </select>
+          </div>
+
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label col-md-3">CIN 1</label>
+              <div class="col-md-9">
+                <input type="file" class="default" (change)="selectFile1($event)">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="control-label col-md-3">CIN 2</label>
+              <div class="col-md-9">
+                <input type="file" class="default" (change)="selectFile2($event)">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="control-label col-md-3">Signature</label>
+              <div class="col-md-9">
+                <input type="file" class="default" (change)="selectFile3($event)">
+              </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+              <label class="control-label col-md-3">Contrat</label>
+              <div class="col-md-9">
+                <input type="file" class="default" (change)="selectFile4($event)">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <button class="btn btn-theme btn-block"
+
+                (click)="demanderCompte()"><i class="fa fa-lock"></i> Demander compte
+        </button>
+
+
+      </div>
+
+    </form>
+  </div>
+</div>

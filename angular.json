@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "1eada6cb-c84f-4104-b663-4585771d3dc6"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BanqueFront": {
+    "banqueFront": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -68,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "BanqueFront:build:production"
+              "browserTarget": "banqueFront:build:production"
             },
             "development": {
-              "browserTarget": "BanqueFront:build:development"
+              "browserTarget": "banqueFront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BanqueFront:build"
+            "browserTarget": "banqueFront:build"
           }
         },
         "test": {
@@ -102,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "BanqueFront"
+  "defaultProject": "banqueFront"
 }

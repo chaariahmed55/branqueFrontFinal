@@ -1,0 +1,72 @@
+<div class="panel">
+  <div class="panel-title">
+   <h5>  Détails demande </h5>
+  </div>
+<div class="panel-body">
+
+  <table class="table">
+    <tr>
+      <td>CIN</td>
+      <td>{{demandeCompte?.utilisateur?.cin}}</td>
+    </tr>
+    <tr>
+      <td>Nom</td>
+      <td>{{demandeCompte?.utilisateur?.nom}}</td>
+    </tr>
+
+    <tr>
+      <td>Prénom</td>
+      <td>{{demandeCompte?.utilisateur?.prenom}}</td>
+    </tr>
+
+    <tr>
+      <td>Téléphone</td>
+      <td>{{demandeCompte?.utilisateur?.phone}}</td>
+    </tr>
+
+    <tr>
+      <td>Email</td>
+      <td>{{demandeCompte?.utilisateur?.email}}</td>
+    </tr>
+
+    <tr>
+      <td>Adresse</td>
+      <td>{{demandeCompte?.utilisateur?.adresse}}</td>
+    </tr>
+
+
+  </table>
+
+  <table class="table table-striped table-advance table-hover">
+
+
+    <thead>
+    <tr>
+      <th>Nom fichier</th>
+      <th>Télécharger</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of pieces">
+      <td>{{data.name}} </td>
+      <td>
+        <a [href]="data.url">
+          <i class="fa fa-download">Télécharger</i>
+        </a>
+      </td>
+
+
+
+    </tr>
+    </tbody>
+
+  </table>
+
+
+
+</div>
+
+</div>

@@ -1,0 +1,40 @@
+<div class="panel">
+
+  <div class="panel-title">
+  Mes comptes
+  </div>
+  <div class="panel-body">
+         <span *ngIf="errorMessage" class="text-danger">
+          {{errorMessage}}
+        </span>
+    <button class="btn btn-send pull-right" (click)="createAccount()">Créer compte</button>
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Date ouverture</th>
+
+        <th>RIB</th>
+        <th>Type Compte</th>
+
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of comptes">
+        <td>{{data.dateOuverture | date: 'dd/MM/yyyy' }}</td>
+        <td>{{data?.rib}}</td>
+        <td>{{data.typeCompte}}</td>
+
+
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
