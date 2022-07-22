@@ -1,0 +1,57 @@
+<!--header start-->
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+      <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <a href="index.html" class="logo"><b>BANK<span>VR</span></b></a>
+    <div class="nav notify-row" id="top_menu">
+
+
+
+      
+      <ul class="nav top-menu" style="position: absolute; right: 200px ">
+
+        
+        <li id="header_notification_bar" class="dropdown">
+          <a  (click)="fillDevise()">
+            <i class="logout">Update Devise</i>
+          </a>
+          
+        </li>
+        
+        
+        <li id="header_notification_bar" class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+            <i class="fa fa-bell-o"></i>
+            <span class="badge bg-warning" *ngIf="carnetcheques.length>0">{{carnetcheques.length}}</span>
+            </a>
+          <ul class="dropdown-menu extended notification">
+            <div class="notify-arrow notify-arrow-yellow"></div>
+            <li>
+              <p class="yellow">You have {{carnetcheques.length}} new notifications</p>
+            </li>
+            <!--ajouter selon le role le role -->
+            <li *ngFor="let object of carnetcheques">
+              <a (click)="ConfirmAdd(object)">
+                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                Compte : {{object.compte?.rib}} 
+                <br>
+                <span class="small italic">n°carnet : {{object?.id}}</span>
+                </a>
+            </li> 
+            <li>
+              <a href="index.html#">See all notifications</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+        <li><a class="logout" href="login.html">Logout</a></li>
+      </ul>
+    </div>
+
+    
+  </header>
