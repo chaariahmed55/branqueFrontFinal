@@ -8,10 +8,10 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  private url = environment.apiUrl +'/login'
+  private url = environment.apiUrl
   constructor(private httpClient: HttpClient) { }
 
   public authenticate(user: Utilisateur): Observable<any> {
-    return this.httpClient.post(this.url, user);
+    return this.httpClient.post(this.url +'/login', user);
   }
 }

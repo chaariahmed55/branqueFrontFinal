@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Compte } from '../../model/compte';
+import { CompteService } from '../../service/compte.service';
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -26,18 +28,36 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
 
   menuItems:any[]=[];
+  idcompte:number=0;
+  comptes: Compte[];
 
-  constructor() {
+
+  constructor(private compteService: CompteService) {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
    }
 
+
   ngOnInit(): void {
-  }
+    this.getCompteByUser(); }
+
+
   isMobileMenu() {
     if ($(window).width() > 991) {
         return false;
     }
     return true;
 };
+
+
+getCompteByUser(): void {
+  const user = JSON.parse(localStorage.getItem('currentUser'));
+  this.compteService.getCompteByUser(user.id).subscribe(data => {
+    this.comptes = data;
+    this.idcompte=this.comptes[0].id;
+  }, ex => console.log(ex));
+}
+
+
+
 
 }
