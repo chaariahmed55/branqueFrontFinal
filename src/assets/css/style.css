@@ -1035,7 +1035,6 @@ PANELS CONFIGURATIONS
   background: white;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 1em;
-  height: 250px;
 }
 .stock .stock-chart {
   background: #00c5de;
@@ -1622,6 +1621,10 @@ PANELS CONFIGURATIONS
 	margin-right: 8px;
 }
 
+/* Grid Showcase*/
+
+	margin-bottom: 15px;
+}
 
 .show-grid [class^=col-] {
 	padding-top: 10px;

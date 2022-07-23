@@ -1,0 +1,83 @@
+<form #f="ngForm" (ngSubmit)="f.valid && valider()" class="form-horizontal style-form">
+  <div class="panel">
+    <div class="panel-body">
+        <span *ngIf="f.submitted && errorMessage" class="text-danger">
+          {{errorMessage}}
+        </span>
+
+      <div class="form-group {{f.submitted && typeCredit.invalid? 'has-error': ''}}">
+        <label class="col-lg-2 control-label">Type crédit</label>
+        <div class="col-lg-10">
+          <select type="text"
+                  class="form-control" name="typeCredit"
+                  required
+                  #typeCredit="ngModel"
+                  [(ngModel)]="demandeCredit.typeCredit">
+            <option value="Voiture">Voiture</option>
+            <option value="Habbital">Habbital</option>
+            <option value="Personnel">Personnel</option>
+            <option value="Etude">Etude</option>
+          </select>
+          <p *ngIf="f.submitted && typeCredit.invalid" class="help-block">
+            <span *ngIf="typeCredit?.errors['required']">Type crédit est obligatoire</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group {{f.submitted && montant.invalid? 'has-error': ''}}">
+        <label class="col-lg-2 control-label">Montant</label>
+        <div class="col-lg-10">
+          <input type="text" placeholder=""
+                 class="form-control" name="montant" (keypress)="numberOnly($event)"
+                 required
+                 #montant="ngModel"
+                 [(ngModel)]="demandeCredit.montant">
+          <p *ngIf="f.submitted && montant.invalid" class="help-block">
+            <span *ngIf="montant?.errors['required']">Montant est obligatoire</span>
+
+          </p>
+        </div>
+      </div>
+
+
+      <div class="form-group {{f.submitted && apport.invalid? 'has-error': ''}}">
+        <label class="col-lg-2 control-label">Apport</label>
+        <div class="col-lg-10">
+          <input type="text" placeholder=""
+                 class="form-control" name="apport" (keypress)="numberOnly($event)"
+                 required
+                 #apport="ngModel"
+                 [(ngModel)]="demandeCredit.apport">
+          <p *ngIf="f.submitted && apport.invalid" class="help-block">
+            <span *ngIf="apport?.errors['required']">Apport est obligatoire</span>
+
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group {{f.submitted && duree.invalid? 'has-error': ''}}">
+        <label class="col-lg-2 control-label">Durée</label>
+        <div class="col-lg-10">
+          <input type="text" placeholder=""
+                 class="form-control" name="duree" (keypress)="numberOnly($event)"
+                 required
+                 #duree="ngModel"
+                 [(ngModel)]="demandeCredit.duree">
+          <p *ngIf="f.submitted && duree.invalid" class="help-block">
+            <span *ngIf="duree?.errors['required']">Durée est obligatoire</span>
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-footer ">
+
+      <a routerLink="/mesComptes">Annuler</a>
+      <button class="btn  {{demandeId? 'btn-warning': 'btn-success'}} ">{{demandeId ? 'Modifier' : 'Ajouter'}}</button>
+
+    </div>
+
+  </div>
+
+</form>

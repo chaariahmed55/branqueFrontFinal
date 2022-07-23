@@ -1,0 +1,84 @@
+<div class="panel">
+  <div class="panel-title">
+    <h5>  Détails demande </h5>
+  </div>
+  <div class="panel-body">
+
+    <div class="form-group"  *ngxPermissionsOnly="['Utilisateur']">
+      <label class="control-label col-md-3">Pièce Jointe</label>
+      <div class="col-md-9">
+        <input multiple type="file" class="default" (change)="selectFile($event)">
+      </div>
+    </div>
+
+
+    <table *ngxPermissionsOnly="['Admin', 'Agent']" class="table">
+      <tr>
+        <td>CIN</td>
+        <td>{{demandeCredit?.compte?.utilisateur?.cin}}</td>
+      </tr>
+      <tr>
+        <td>Nom</td>
+        <td>{{demandeCredit?.compte?.utilisateur?.nom}}</td>
+      </tr>
+
+      <tr>
+        <td>Prénom</td>
+        <td>{{demandeCredit?.compte?.utilisateur?.prenom}}</td>
+      </tr>
+
+      <tr>
+        <td>Téléphone</td>
+        <td>{{demandeCredit?.compte?.utilisateur?.phone}}</td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td>{{demandeCredit?.compte?.utilisateur?.email}}</td>
+      </tr>
+
+      <tr>
+        <td>Adresse</td>
+        <td>{{demandeCredit?.compte?.utilisateur?.adresse}}</td>
+      </tr>
+
+
+    </table>
+
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Nom fichier</th>
+        <th>Télécharger</th>
+
+        <input style="background-color:#2eb9b4" type = "button" value = "Retour!"  onclick = "history.back()">
+
+      </tr>
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of pieces">
+        <td>{{data.name}} </td>
+        <td>
+          <a [href]="data.url">
+            <i class="fa fa-download">Télécharger</i>
+          </a>
+
+        </td>
+
+
+
+      </tr>
+
+      </tbody>
+
+
+    </table>
+
+
+
+  </div>
+
+</div>

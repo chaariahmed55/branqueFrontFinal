@@ -1,0 +1,41 @@
+<div class="panel">
+
+  <div class="panel-title">
+    Mes Demande crédit
+  </div>
+  <div class="panel-body">
+
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Date écheance</th>
+        <th>Montant</th>
+        <th>Payée</th>
+        <th>
+        <input style="background-color:#2eb9b4" type = "button" value = "Retour!"  onclick = "history.back()">
+        </th>
+
+
+
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of echeances">
+        <td>{{data.dateEcheance | date: 'dd/MM/yyyy' }}</td>
+        <td>{{data?.montant | number}}</td>
+        <td>{{data?.paye ? 'Oui': 'Non'}}</td>
+
+
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="panel">
+
+  <div class="panel-title">
+    Mes Demande crédit
+  </div>
+  <div class="panel-body">
+         <span *ngIf="errorMessage" class="text-danger">
+          {{errorMessage}}
+        </span>
+
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Date demande</th>
+        <th>Client</th>
+        <th>Compte</th>
+        <th>Type crédit</th>
+        <th>Montant</th>
+        <th>Apport</th>
+        <th>Durée</th>
+        <th>Etat</th>
+
+        <th>Actions</th>
+
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of demandeCredits">
+        <td>{{data.dateCreation | date: 'dd/MM/yyyy' }}</td>
+        <td>{{data?.compte?.utilisateur?.nom + ' '+ data?.compte?.utilisateur?.prenom}}</td>
+        <td>{{data?.compte?.rib}}</td>
+        <td>{{data?.typeCredit}}</td>
+        <td>{{data.montant}}</td>
+        <td>{{data.apport}}</td>
+        <td>{{data.duree}}</td>
+        <td>{{data.etatDemande}}</td>
+        <td>
+
+          <button
+
+            class="btn btn-danger btn-xs "  style="margin-right: 5px" title="Réfuser"
+            (click)="refuserDemande(data)"><i class="fa fa-times"></i></button>
+
+
+
+
+          <button
+            [disabled]="data.etatDemande == 'EN_ATTENTE'" *ngxPermissionsOnly="['Admin']"
+            class="btn btn-success btn-xs " style="margin-right: 5px"  title="Accepter"
+            (click)="accepterDemande(data)"><i class="fa fa-check"> hhhhhhh</i></button>
+
+
+          <button
+            [disabled]="data.etatDemande !== 'EN_ATTENTE'" *ngxPermissionsOnly="['Agent']"
+            class="btn btn-info btn-xs "  style="margin-right: 5px"  title="En cours"
+            (click)="encoursDemande(data)"><i class="fa fa-refresh"></i></button>
+
+
+          <button
+
+            class="btn btn-send btn-xs "   title="Détails"
+            routerLink="/detailDemandeCredit/{{data.id}}"><i class="fa fa-eye"></i></button>
+
+        </td>
+
+
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

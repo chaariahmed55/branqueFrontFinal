@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Utilisateur} from "../model/utilisateur";
 import {Compte} from "../model/compte";
 
 @Injectable({
@@ -11,7 +10,16 @@ import {Compte} from "../model/compte";
 export class CompteService {
 
   private url = environment.apiUrl + '/compte';
-  constructor(private httpClient: HttpClient) { }
+
+
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+  getByUser(id: number): Observable<Compte[]> {
+    return  this.httpClient.get<Compte[]>(this.url +'/user/' + id);
+  }
+
 
   getAllCompte(): Observable<Compte[]> {
     return this.httpClient.get<Compte[]>(this.url + '/all');
@@ -23,6 +31,6 @@ export class CompteService {
   }
 
   createCompte(compte: Compte): Observable<any> {
-    return  this.httpClient.post(this.url, compte);
+    return this.httpClient.post(this.url, compte);
   }
 }

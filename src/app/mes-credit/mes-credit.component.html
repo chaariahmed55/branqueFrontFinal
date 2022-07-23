@@ -1,0 +1,62 @@
+<div class="panel">
+
+  <div class="panel-title">
+    Mes Demande crédit
+  </div>
+  <div class="panel-body">
+         <span *ngIf="errorMessage" class="text-danger">
+          {{errorMessage}}
+        </span>
+
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Date crédit</th>
+        <th>Compte</th>
+        <th>Type crédit</th>
+        <th>Montant</th>
+        <th>Montant restant</th>
+        <th>Total Crédit</th>
+        <th>Durée</th>
+
+
+        <th>Actions</th>
+
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of credits">
+        <td>{{data.dateCredit | date: 'dd/MM/yyyy' }}</td>
+        <td>{{data?.demandeCredit?.compte?.rib}}</td>
+        <td>{{data?.demandeCredit?.typeCredit}}</td>
+
+        <td>{{data.montant | number}}</td>
+        <td>{{data.montantRestant | number}}</td>
+        <td>{{data.totalCredit | number}}</td>
+        <td>{{data.duree}}</td>
+
+        <td>
+
+
+
+
+          <button
+
+            class="btn btn-facebook btn-xs "  style="margin-left: 5px" title="Echeance"
+            routerLink="/echeance/{{data.id}}"><i class="fa fa-eye"></i></button>
+        </td>
+
+
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

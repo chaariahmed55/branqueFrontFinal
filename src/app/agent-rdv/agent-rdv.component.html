@@ -1,0 +1,42 @@
+<div class="panel">
+  <div class="panel-body">
+
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Date Création</th>
+        <th>Client</th>
+        <th>Sujet</th>
+        <th>Déscription</th>
+        <th>Etat</th>
+        <th>Date RDV</th>
+
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of rdvs">
+        <td>{{data.dateCreation | date: 'dd/MM/yyyy' }}</td>
+        <td>{{data.utilisateur?.nom }} {{data.utilisateur?.prenom}}</td>
+        <td>{{data.sujet }}</td>
+        <td>{{data.description}}</td>
+        <td>{{data.status}}</td>
+        <td>
+
+            {{data.dateRendezVous | date: 'dd/MM/yyyy  HH:mm'}}
+
+        </td>
+
+
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
