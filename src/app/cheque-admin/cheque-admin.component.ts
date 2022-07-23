@@ -23,7 +23,7 @@ export class ChequeAdminComponent implements OnInit {
   public getPaymentChequeNotConfirmed(){
     this.paymentchequeservice.getnotConfirmedPayment().subscribe(data=>{
       for (const iterator of data) {
-        iterator.image = this.baseStrign+iterator.image;
+      //   iterator.image = this.baseStrign+iterator.image;
         this.paymentcheques.push(iterator)
       }
     });

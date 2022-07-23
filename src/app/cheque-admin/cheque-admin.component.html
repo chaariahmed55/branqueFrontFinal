@@ -28,7 +28,7 @@
                                 <td class="hidden-phone">{{payement?.compte?.rib}}</td>
                                 <td class="hidden-phone">{{payement.montant}}</td>
                                 <td class="hidden-phone">{{payement.dateCheque}}</td>
-                                <td class="hidden-phone"><img src="assets/img/ui-sam.jpg" class="img-circle" width="120">{{payement.image}}</td>
+                                <td class="hidden-phone"><img src="assets/img/{{payement.image}}" class="img-circle" width="120">{{payement.image}}</td>
                                 <td>
                                     <button class="btn btn-success btn-xs" (click)="ConfirmPayement(payement)"><i class="fa fa-check"></i></button>
                                 </td>

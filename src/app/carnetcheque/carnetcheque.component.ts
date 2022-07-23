@@ -1,4 +1,4 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpRequest } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { tick } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
@@ -34,6 +34,7 @@ export class CarnetchequeComponent implements OnInit {
   uploadProgress?: number;
   uploadSub?: Subscription;
   file?: File;
+  listImages:any []=[]
 
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private carnetchequeservice: CarnetChequeService, private compteservice: CompteService, private chequeservice: ChequeService, private payementchequeservice: PaymentchequeService) {
@@ -84,29 +85,38 @@ export class CarnetchequeComponent implements OnInit {
 
   public validerpayement() {
     if (this.file && this.cheque.id!=null) {
+
       this.fileName = this.file.name;
       const formData = new FormData();
       formData.append("file", this.file);
       this.payementchequeservice.PaymentCheque(formData,this.cheque?.id).subscribe(data=>{console.log(data)});
-      setTimeout(function(){location.reload();}, 2000);
+      setTimeout(function(){/*location.reload();*/console.log("hello")}, 2000);
     }
     this.ngOnInit();
   }
 
   public onFileSelected(event: any) {
     this.file = event.target.files[0];
+
   }
 
 public getAllPaymentCheque(){
   this.cheques1=[];
   this.chequeservice.getAllPaymentCheque(this.productIdFromRoute).subscribe(data=>{for (const iterator of data){
-    if (iterator.payementCheque?.image!=null) {
-      iterator.payementCheque.image = this.baseStrign+iterator.payementCheque.image;
-    }
+    // if (iterator.payementCheque?.image!=null) {
+    //   //iterator.payementCheque.image = this.baseStrign+iterator.payementCheque.image;
+    //   console.log(iterator.payementCheque.image)
+    //   this.getimagewithurl(iterator.payementCheque.image);
+    // }
     this.cheques1.push(iterator);
   }})
 }
 
-
+// getimagewithurl(urlimage:string){
+// this.carnetchequeservice.getImageCheque(urlimage).subscribe(data=>{
+//   this.listImages.push(data);
+//   console.log(this.listImages)
+// });
+// }
 
 }

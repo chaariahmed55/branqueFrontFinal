@@ -64,12 +64,13 @@
                             </tr>
                         </thead>
                         <tbody *ngFor="let cheque of cheques1">
+                            
                             <tr>
                                 <!-- {{cheque.payementCheque?.image}} -->
                                 <td class="hidden-phone">{{cheque.id}}</td>
                                 <!-- <td class="hidden-phone"><img src="C:\spring\workspace\ProjetBanque_BackEnd\src\main\webapp\Image\{{cheque.payementCheque?.image}}" class="img-circle" width="80"></td> -->
                                 <!-- <td class="hidden-phone"><img src="{{cheque.payementCheque?.image}}" class="img-circle" width="80">{{cheque.payementCheque?.image}} </td> -->
-                                <td class="hidden-phone"><iframe src="assets/img/ui-sam.jpg" class="img-circle" width="120"></iframe></td>
+                                <td class="hidden-phone"><img src="/assets/img/{{cheque.payementCheque.image}}" class="img-circle" width="120">{{cheque.payementCheque.image}}</td>
                                 
                                 <td class="hidden-phone">{{cheque.payementCheque?.montant}} Dt</td>
                                 <td class="hidden-phone">{{cheque.payementCheque?.dateCheque}}</td>

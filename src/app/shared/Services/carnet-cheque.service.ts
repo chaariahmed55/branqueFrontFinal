@@ -32,7 +32,9 @@ public confirmcarnetCheque(idcompte:number){
   return this.httpClient.post(this.host+'/Acarnetcheque/'+idcompte,null);
 }
 
-
+public getImageCheque(pathimage:string){
+  return this.httpClient.get(this.host+'/getImage/'+pathimage);
+}
 
 
 }
