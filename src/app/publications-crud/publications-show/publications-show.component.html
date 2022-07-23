@@ -1,0 +1,55 @@
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <button class="nav-item">
+      <a routerLink="add" class="btn btn-info" routerLinkActive="active">Add publication</a>
+    </button>
+    
+    <div class="col-lg-7">
+      <h2>Liste des publications</h2>
+    
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Autheur</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let publications of publications | async" >
+            <td>{{publications.titre}}</td>
+            <td>{{publications.autheur}}</td>
+            <td>{{publications.datepublication}}</td>
+            <td><button (click)="deletePub(publications.id)"  class="btn btn-danger">Delete</button>
+                <button  (click)="updatePub(publications.id)"class="btn btn-info" style="margin-left: 30px">Update</button>
+                <button  (click)="publicationDetails(publications.id)"class="btn btn-info" style="margin-left: 30px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,55 @@
+<p>elementpublist works!</p>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <button class="nav-item">
+      <a routerLink="add" class="btn btn-info" routerLinkActive="active">Add publication</a>
+    </button>
+    
+    <div class="col-lg-7">
+      <h2>Liste des publications</h2>
+    
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Contenu</th>
+            <th>Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Elementpublication of Elementpublication | async" >
+            <td>{{Elementpublication.contenu}}</td>
+            <td>{{Elementpublication.typeElement}}</td>
+            
+            <td><button (click)="deleteElePub(Elementpublication.id)"  class="btn btn-danger">Delete</button>
+                <button  (click)="updateElePub(Elementpublication.id)"class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="ElementpublicationDetails(Elementpublication.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,63 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-3"></div>
+    <div class="col-lg-7">
+
+<div class="row">
+  <div class="column"></div>
+  <div class="column column-50">
+
+    
+      <ng-container *ngFor="let message of messages">
+        <div class="message" [ngClass]="{from: message.author === 'bot',to: message.author === 'user'}">
+          {{ message.content }}
+        </div>
+      </ng-container>
+      <h1 *ngIf="messages.length == 0; else dialogInfo" for="nameField">Discussion</h1>
+      <br>
+      <input class="form-control"[(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" />
+      <br>
+      <br>
+
+      <button (click)="sendMessage()" class="btn btn-info">Send</button>
+      <ng-template #dialogInfo>
+        <span [className]="'float-right'">Total messages: {{ messages.length }}</span>
+      </ng-template>
+      
+    
+  </div>
+  <br>
+  <br>
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="column"></div>
+</div>
+   
+  </div>
+  </div>
