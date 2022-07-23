@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.user).subscribe(res => {
       localStorage.setItem('token', res.token);
       localStorage.setItem('currentUser', JSON.stringify(res.user));
-      this.router.navigate(['/wafa']);
+      this.router.navigate(['/']).then(t => location.reload());
     }, ex => {
       this.errorMessage = 'Erreur d\'authentification: Merci de vérifier votre email ou  mot de passe';
       console.log(ex);

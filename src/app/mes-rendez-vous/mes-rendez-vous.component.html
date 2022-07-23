@@ -1,0 +1,51 @@
+<div class="panel">
+  <div class="panel-body">
+
+    <table class="table table-striped table-advance table-hover">
+
+
+      <thead>
+      <tr>
+        <th>Date Création</th>
+        <th>Sujet</th>
+        <th>Déscription</th>
+        <th>Etat</th>
+        <th>Date RDV</th>
+        <th>Agent</th>
+
+        <th>Actions</th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of rdvs">
+        <td>{{data.dateCreation | date: 'dd/MM/yyyy' }}</td>
+        <td>{{data.sujet }}</td>
+        <td>{{data.description}}</td>
+        <td>{{data.status}}</td>
+        <td>{{data.dateRendezVous | date: 'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{data?.agent?.nom}} {{data?.agent?.prenom}}</td>
+
+
+        <td>
+          <button
+              [disabled]="data.status !== 'EN_ATTENTE'"
+            class="btn btn-danger btn-xs "  style="margin-right: 5px" title="Annuler"
+             (click)="annulerRdv(data)"><i class="fa fa-times"></i></button>
+
+
+
+
+          <button
+            [disabled]="data.status !== 'EN_ATTENTE'"
+            class="btn btn-warning btn-xs "   title="Editer"
+            routerLink="/rdv/edit/{{data.id}}"><i class="fa fa-pencil"></i></button>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>

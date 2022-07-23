@@ -1,0 +1,49 @@
+<form #f="ngForm" (ngSubmit)="f.valid && valider()" class="form-horizontal style-form">
+  <div class="panel">
+    <div class="panel-body">
+        <span *ngIf="f.submitted && errorMessage" class="text-danger">
+          {{errorMessage}}
+        </span>
+      <div class="form-group {{f.submitted && sujet.invalid? 'has-error': ''}}">
+        <label class="col-lg-2 control-label">Sujet</label>
+        <div class="col-lg-10">
+          <input type="text" placeholder="" id="l-name"
+                 class="form-control" name="sujet"
+                 required
+                 #sujet="ngModel"
+                 [(ngModel)]="rdv.sujet">
+          <p *ngIf="f.submitted && sujet.invalid" class="help-block">
+            <span *ngIf="sujet?.errors['required']">Sujet est obligatoire</span>
+
+          </p>
+        </div>
+      </div>
+
+
+      <div class="form-group {{f.submitted && description.invalid? 'has-error': ''}}">
+        <label class="col-lg-2 control-label">Déscription</label>
+        <div class="col-lg-10">
+          <textarea type="text" placeholder=""
+                    class="form-control" name="description"
+                    required
+                    #description="ngModel"
+                    [(ngModel)]="rdv.description"></textarea>
+          <p *ngIf="f.submitted && description.invalid" class="help-block">
+            Déscription est obligatoire
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="panel-footer ">
+
+      <button (click)="cancel()" type="reset" class="btn btn-danger " style="margin-right: 10px">Annuler</button>
+      <button class="btn  {{rdvId? 'btn-warning': 'btn-success'}} ">{{rdvId ? 'Modifier' : 'Ajouter'}}</button>
+
+    </div>
+
+  </div>
+
+</form>

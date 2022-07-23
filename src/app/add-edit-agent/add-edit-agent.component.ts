@@ -27,7 +27,7 @@ export class AddEditAgentComponent implements OnInit {
 
   public save(): void {
     this.userService.saveAgent(this.agent).subscribe(res => {
-      this.router.navigate(['/wafa/listAgent']);
+      this.router.navigate(['/listAgent']);
     }, ex => {
       this.errorMessage = ex.error;
       console.log(ex);
@@ -36,7 +36,7 @@ export class AddEditAgentComponent implements OnInit {
 
   public update(): void {
     this.userService.updateAgent(this.agent).subscribe(res => {
-      this.router.navigate(['/wafa/listAgent']);
+      this.router.navigate(['/listAgent']);
     }, ex => {
       this.errorMessage = ex.error;
       console.log(ex);

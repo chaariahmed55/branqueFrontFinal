@@ -39,7 +39,7 @@ export class DemandeCompteComponent implements OnInit {
         if(this.files.length>0) {
           this.uploadFile(res.id);
         } else {
-          this.router.navigate(['']);
+          this.router.navigate(['/login']);
         }
     }, ex => {
       this.errorMessage = ex.error;
@@ -74,7 +74,7 @@ export class DemandeCompteComponent implements OnInit {
   uploadFile(demandeId: number): void {
 
     this.pieceJointeService.uploadFile(this.files, demandeId).subscribe( res => {
-      this.router.navigate(['']);
+      this.router.navigate(['/login']);
     }, ex => {
       this.errorMessage = ex.error;
       console.log(ex);

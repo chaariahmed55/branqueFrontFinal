@@ -1,3 +1,4 @@
+
 import {Utilisateur} from "./utilisateur";
 
 export class Compte {
@@ -6,5 +7,7 @@ export class Compte {
   rib: string;
   dateOuverture: Date;
   typeCompte: string;
+
   utilisateur: Utilisateur;
+
 }
